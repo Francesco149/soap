@@ -31,7 +31,7 @@ clean:
 
 install: all
 	@install -Dm 755 soap ${PREFIX}/bin/soap
-	@ln -s soap ${PREFIX}/bin/xdg-open
+	@ln -sf soap ${PREFIX}/bin/xdg-open
 	@echo remember to rename original xdg-open to xdg-open_ if you have it
 
 uninstall:

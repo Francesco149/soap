@@ -1,9 +1,25 @@
 /* See LICENSE file for copyright and license details. */
 
-static const Pair pairs[] = {
-	/* regex                  action */
-	{ "\.(jpg|png|tiff)$",    "feh %s"        },
-	{ "\.gif$",               "wget -O /tmp/tmp_gifview.gif %s && gifview -a /tmp/tmp_gifview.gif" },
-	{ "\.mp3$",               "st -e mplayer %s" },
-	{ "^(http://|https://)?(www\.)?(youtube.com/watch\?|youtu\.be/)", "youtube-viewer %s" }
+#define PREHTTP "^(http://|https://)?(www\.)?"
+
+static const Pair pairs[] =
+{
+    /* { regex,             action } */
+    { "[.](jpg|png|tiff)$", "mupdf-x11 %s" },
+    { "[.]mp3$",            "mpv --keep-open %s" },
+
+    {
+        "[.]gif$",
+
+        "wget -O /tmp/tmp_gifview.gif %s && "
+        "mpv -loop /tmp/tmp_gifview.gif &&"
+        "rm /tmp/tmp_gifview.gif"
+    },
+
+    {
+        PREHTTP "(youtube.com/watch\?|youtu[.]be/)",
+        "mpv --keep-open %s"
+    },
+
+    { PREHTTP ".*", "firefox %s" },
 };
