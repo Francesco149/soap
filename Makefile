@@ -4,6 +4,7 @@ include config.mk
 
 SRC = soap.c
 OBJ = ${SRC:.c=.o}
+PREFIX ?= ${HOME}
 
 all: options soap
 
@@ -12,6 +13,7 @@ options:
 	@echo "CFLAGS   = ${CFLAGS}"
 	@echo "LDFLAGS  = ${LDFLAGS}"
 	@echo "CC       = ${CC}"
+	@echo "PREFIX   = ${PREFIX}"
 
 .c.o:
 	@echo CC $<
@@ -28,11 +30,10 @@ clean:
 	@rm -f soap ${OBJ}
 
 install: all
-	@test -f /usr/bin/xdg-open_ || (echo backing up to /usr/bin/xdg-open_; mv /usr/bin/xdg-open /usr/bin/xdg-open_)
-	@echo installing new xdg-open
-	@cp -f soap /usr/bin/xdg-open
-	@chmod 755 /usr/bin/xdg-open
+	@install -Dm 755 soap ${PREFIX}/bin/soap
+	@ln -s soap ${PREFIX}/bin/xdg-open
+	@echo remember to rename original xdg-open to xdg-open_ if you have it
 
 uninstall:
-	@echo moving xdg-open_ back into place
-	@(test -f /usr/bin/xdg-open_ && mv /usr/bin/xdg-open_ /usr/bin/xdg-open) || echo ERROR: xdg-open_ does not exist
+	@rm ${PREFIX}/bin/soap
+	@rm ${PREFIX}/bin/xdg-open
