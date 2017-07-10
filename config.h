@@ -20,7 +20,7 @@ static const Pair pairs[] =
 	{ "[.]gif$", "mpv -loop %s" },
 
 	{
-		PREHTTP "(youtube.com/watch\?|youtu[.]be/)",
+		PREHTTP "(youtube.com/watch[?]|youtu[.]be/)",
 		"mpv --keep-open %s"
 	},
 
