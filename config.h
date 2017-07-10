@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-#define PREHTTP "^(http://|https://)?(www\.)?"
+#define PREHTTP "^(http://|https://)(www[.])?"
 
 static const Pair pairs[] =
 {
