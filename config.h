@@ -8,6 +8,7 @@ static const Pair pairs[] =
 
 	{ "[.](jpg|jpeg|png|tiff|pdf|cbz)$", "mupdf-x11 %s" },
 	{ "[.](mp3|ogg|wav|flac|aac)$", "mpv --keep-open %s" },
+	{ "[.](mp4|mkv|avi|mov)$", "mpv --keep-open %s" },
 
 	{
 		PREHTTP ".*[.]gif$",
