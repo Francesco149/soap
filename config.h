@@ -13,7 +13,7 @@ static const Pair pairs[] =
 		PREHTTP ".*[.]gif$",
 
 		"wget -O /tmp/tmp_gifview.gif %s && "
-		"mpv -loop /tmp/tmp_gifview.gif &&"
+		"mpv -loop /tmp/tmp_gifview.gif && "
 		"rm /tmp/tmp_gifview.gif"
 	},
 
