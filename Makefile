@@ -21,7 +21,7 @@ options:
 
 ${OBJ}: config.mk
 
-soap: ${OBJ}
+soap: clean ${OBJ}
 	@echo CC -o $@
 	@${CC} -o $@ ${OBJ} ${LDFLAGS}
 
