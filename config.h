@@ -7,9 +7,10 @@ static const Pair pairs[] =
 	/* { regex,             action } */
 	{ "[.](jpg|png|tiff)$", "mupdf-x11 %s" },
 	{ "[.]mp3$",            "mpv --keep-open %s" },
+	{ "[.]gif$",            "mpv -loop %s" },
 
 	{
-		"[.]gif$",
+		PREHTTP ".*[.]gif$",
 
 		"wget -O /tmp/tmp_gifview.gif %s && "
 		"mpv -loop /tmp/tmp_gifview.gif &&"
