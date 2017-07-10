@@ -26,6 +26,7 @@ static const Pair pairs[] =
 	},
 
 	TMP_MPV("gif")
+	TMP_MPV("webm")
 
 	{ "[.]gif$", "mpv -loop %s" },
 
