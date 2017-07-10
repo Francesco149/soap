@@ -6,7 +6,7 @@ static const Pair pairs[] =
 {
 	/* { regex, action } */
 
-	{ "[.](jpg|png|tiff)$", "mupdf-x11 %s" },
+	{ "[.](jpg|jpeg|png|tiff)$", "mupdf-x11 %s" },
 	{ "[.]mp3$",            "mpv --keep-open %s" },
 
 	{
