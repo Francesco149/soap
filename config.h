@@ -7,7 +7,7 @@ static const Pair pairs[] =
 	/* { regex, action } */
 
 	{ "[.](jpg|jpeg|png|tiff|pdf|cbz)$", "mupdf-x11 %s" },
-	{ "[.]mp3$",            "mpv --keep-open %s" },
+	{ "[.]mp3$", "mpv --keep-open %s" },
 
 	{
 		PREHTTP ".*[.]gif$",
