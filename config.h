@@ -20,14 +20,14 @@ static const Pair pairs[] =
 											\
 		"tmpfile=$(mktemp -u)." ext " && "	\
 		"wget -O $tmpfile %s && "			\
-		"mpv -loop $tmpfile && "			\
+		"mpv --loop-file $tmpfile && "		\
 		"rm $tmpfile"						\
 	},
 
 	TMP_MPV("gif")
 	TMP_MPV("webm")
 
-	{ "[.]gif$", "mpv -loop %s" },
+	{ "[.]gif$", "mpv --loop-file %s" },
 
 	{
 		PREHTTP "(youtube.com/watch[?]|youtu[.]be/)",
