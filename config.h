@@ -4,22 +4,22 @@
 
 static const Pair pairs[] =
 {
-    /* { regex,             action } */
-    { "[.](jpg|png|tiff)$", "mupdf-x11 %s" },
-    { "[.]mp3$",            "mpv --keep-open %s" },
+	/* { regex,             action } */
+	{ "[.](jpg|png|tiff)$", "mupdf-x11 %s" },
+	{ "[.]mp3$",            "mpv --keep-open %s" },
 
-    {
-        "[.]gif$",
+	{
+		"[.]gif$",
 
-        "wget -O /tmp/tmp_gifview.gif %s && "
-        "mpv -loop /tmp/tmp_gifview.gif &&"
-        "rm /tmp/tmp_gifview.gif"
-    },
+		"wget -O /tmp/tmp_gifview.gif %s && "
+		"mpv -loop /tmp/tmp_gifview.gif &&"
+		"rm /tmp/tmp_gifview.gif"
+	},
 
-    {
-        PREHTTP "(youtube.com/watch\?|youtu[.]be/)",
-        "mpv --keep-open %s"
-    },
+	{
+		PREHTTP "(youtube.com/watch\?|youtu[.]be/)",
+		"mpv --keep-open %s"
+	},
 
-    { PREHTTP ".*", "firefox %s" },
+	{ PREHTTP ".*", "firefox %s" },
 };
