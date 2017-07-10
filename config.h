@@ -34,5 +34,6 @@ static const Pair pairs[] =
         "mpv --keep-open %s"
     },
 
+    { "^tg://.*", "Telegram -- %s" },
     { PREHTTP ".*", "firefox %s" },
 };
