@@ -10,14 +10,22 @@ static const Pair pairs[] =
 	{ "[.](mp3|ogg|wav|flac|aac)$", "mpv --keep-open %s" },
 	{ "[.](mp4|mkv|avi|mov)$", "mpv --keep-open %s" },
 
-	{
-		PREHTTP ".*[.]gif$",
 
-		"tmpfile=$(mktemp -u).gif && "
-		"wget -O $tmpfile %s && "
-		"mpv -loop $tmpfile && "
-		"rm $tmpfile"
+	/*
+		mpv re-downloads the file on every loop so it's best to
+		cache them to /tmp/
+	*/
+#   define TMP_MPV(ext)						\
+	{										\
+		PREHTTP ".*[.]" ext "$",			\
+											\
+		"tmpfile=$(mktemp -u)." ext " && "	\
+		"wget -O $tmpfile %s && "			\
+		"mpv -loop $tmpfile && "			\
+		"rm $tmpfile"						\
 	},
+
+	TMP_MPV("gif")
 
 	{ "[.]gif$", "mpv -loop %s" },
 
