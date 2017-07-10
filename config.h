@@ -7,7 +7,6 @@ static const Pair pairs[] =
 	/* { regex,             action } */
 	{ "[.](jpg|png|tiff)$", "mupdf-x11 %s" },
 	{ "[.]mp3$",            "mpv --keep-open %s" },
-	{ "[.]gif$",            "mpv -loop %s" },
 
 	{
 		PREHTTP ".*[.]gif$",
@@ -16,6 +15,8 @@ static const Pair pairs[] =
 		"mpv -loop /tmp/tmp_gifview.gif && "
 		"rm /tmp/tmp_gifview.gif"
 	},
+
+	{ "[.]gif$", "mpv -loop %s" },
 
 	{
 		PREHTTP "(youtube.com/watch\?|youtu[.]be/)",
